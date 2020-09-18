@@ -21,4 +21,8 @@ ingress:
   path: /
   hosts:
     - rangerrom.com
+  tls:
+      - secretName: tls-secret
+        hosts:
+          - rangerrom.com
   annotations: {}
