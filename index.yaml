@@ -3,42 +3,42 @@ entries:
   prometheus-aggregator-gateway:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-09-18T10:55:19.6664722+10:00"
+    created: "2020-09-18T11:24:35.5500727+10:00"
     description: Prometheus Aggregator Gateway
     digest: 306b631837c3ecc5cff83d47047320109d94786c5e0abbeb0555652813be071d
     home: https://github.com/Romiko/helm-charts.git
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: prometheus-aggregator-gateway
     urls:
-    - https://romiko.github.io/helm-charts/prometheus-aggregator-gateway-0.0.1.tgz
+    - https://raw.githubusercontent.com/Romiko/helm-charts/master/prometheus-aggregator-gateway-0.0.1.tgz
     version: 0.0.1
   prometheus-appinsights-exporter:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-09-18T10:55:19.6696007+10:00"
+    created: "2020-09-18T11:24:35.5532264+10:00"
     description: Prometheus Appinsights Exporter
     digest: 797ce983f6294acf5d422713374c9b6ade97350614b439884064558234c33b94
     home: https://github.com/Romiko/helm-charts.git
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: prometheus-appinsights-exporter
     urls:
-    - https://romiko.github.io/helm-charts/prometheus-appinsights-exporter-1.0.0.tgz
+    - https://raw.githubusercontent.com/Romiko/helm-charts/master/prometheus-appinsights-exporter-1.0.0.tgz
     version: 1.0.0
   sc-cron-job:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-09-18T10:55:19.6729241+10:00"
+    created: "2020-09-18T11:24:35.5566063+10:00"
     description: A Helm chart for Kubernetes
     digest: 3ccc8027bd24ee39b755af6a94cee724b6a058709db29fccb9ec8d5c78dcbf31
     name: sc-cron-job
     type: application
     urls:
-    - https://romiko.github.io/helm-charts/sc-cron-job-1.0.0.tgz
+    - https://raw.githubusercontent.com/Romiko/helm-charts/master/sc-cron-job-1.0.0.tgz
     version: 1.0.0
   sc-spaces:
   - apiVersion: v1
     appVersion: 0.30.0
-    created: "2020-09-18T10:55:19.6788523+10:00"
+    created: "2020-09-18T11:24:35.5627797+10:00"
     dependencies:
     - alias: nginx-ingress
       condition: nginx-ingress.enabled
@@ -56,6 +56,6 @@ entries:
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: sc-spaces
     urls:
-    - https://romiko.github.io/helm-charts/sc-spaces-0.5.0.tgz
+    - https://raw.githubusercontent.com/Romiko/helm-charts/master/sc-spaces-0.5.0.tgz
     version: 0.5.0
-generated: "2020-09-18T10:55:19.6630658+10:00"
+generated: "2020-09-18T11:24:35.5465328+10:00"
