@@ -35,6 +35,7 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "prometheus-aggregator-gateway.labels" -}}
+app: {{ include "prometheus-aggregator-gateway.name" . }}
 app.kubernetes.io/name: {{ include "prometheus-aggregator-gateway.name" . }}
 helm.sh/chart: {{ include "prometheus-aggregator-gateway.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
