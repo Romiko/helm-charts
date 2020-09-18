@@ -1,29 +1,37 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "prometheus-aggregator-gateway.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
-{{- $host := .Values.ingress.host -}}
 {{- $path := .Values.ingress.path -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+{{- $ingressPath := .Values.ingress.path }}
+{{- $needsRewrite := and ($ingressPath) (ne $ingressPath "/") }}
 apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ .Release.Name }}-ingress
   labels:
 {{ include "prometheus-aggregator-gateway.labels" . | indent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+    kubernetes.io/ingress.class: {{ .Release.Namespace }}-nginx
+    {{- if $needsRewrite }}
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    {{- end }}
+    nginx.ingress.kubernetes.io/proxy-body-size: {{ .Values.ingress.bodySize | default "1m" }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4}}
+    {{- end }}
 spec:
   rules:
-  - host: {{ $host }}
-    http:
-      paths:
-      - backend:
-          serviceName: {{ $fullName }}
-          servicePort: {{ $svcPort }}
-        path: {{ $path }}
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          {{- if $needsRewrite }}
+          - path: {{ $ingressPath }}(/|$)(.*)
+          {{- else }}
+          - path: {{ $ingressPath }}
+          {{- end }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: $svcPort
+  {{- end }}
 {{- end }}
