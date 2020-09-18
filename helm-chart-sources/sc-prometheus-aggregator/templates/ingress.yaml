@@ -1,6 +1,5 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "prometheus-aggregator-gateway.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
 {{- $path := .Values.ingress.path -}}
 {{- $ingressPath := .Values.ingress.path }}
 {{- $needsRewrite := and ($ingressPath) (ne $ingressPath "/") }}
@@ -32,6 +31,6 @@ spec:
           {{- end }}
             backend:
               serviceName: {{ $fullName }}
-              servicePort: $svcPort
+              servicePort: http
   {{- end }}
 {{- end }}
