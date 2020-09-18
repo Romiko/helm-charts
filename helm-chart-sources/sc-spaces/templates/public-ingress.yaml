@@ -1,0 +1,36 @@
+{{- $tls := index .Values "public-nginx-ingress" "tls" -}}
+{{- if index .Values "public-nginx-ingress" "enabled" -}}
+{{- if index .Values "public-nginx-ingress" "hosts" -}}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Namespace }}-public-ingress
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "team.name" . }}
+    chart: {{ template "team.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: {{ index .Values "public-nginx-ingress" "controller" "ingressClass" | default "nginx" }}
+{{- with .Values.certmanager }}
+  {{- if .enabled }}
+    {{- if .issuer }}
+    cert-manager.io/issuer: {{ .issuer }}
+    {{- else if .clusterIssuer }}
+    cert-manager.io/cluster-issuer: {{ .clusterIssuer }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+spec:
+{{- if index .Values "public-nginx-ingress" "tls" }}
+  tls:
+{{ toYaml $tls | indent 2 }}
+{{- end }}
+  rules:
+{{- range index .Values "public-nginx-ingress" "hosts" }}
+  - host: {{ . | quote }}
+{{- end }}
+{{- end }}
+{{- end }}

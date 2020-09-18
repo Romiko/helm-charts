@@ -1,0 +1,60 @@
+jobs:
+- name: job-name-1
+  image:
+    pullPolicy: IfNotPresent
+
+  nameOverride: ""
+  fullnameOverride: ""
+
+  cron: "*/1 * * * *"
+
+  alerts:
+    slackChannel: {}
+
+  environment:
+    - name: key1
+      value: value1
+    - name:  testPasswordKey1
+      valueFromSecret: testPassword1
+
+  secrets:
+    testPassword: "password1"
+
+  resources: {}
+
+  activeDeadlineSeconds: {}
+
+  # Optional - Use a node label to ensure the cronjob runs on a specific physical node.
+  # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
+
+  nodeSelector: {}
+
+- name: job-name-2
+  image:
+    pullPolicy: IfNotPresent
+
+  nameOverride: ""
+  fullnameOverride: ""
+
+  cron: "*/1 * * * *"
+
+  alerts:
+    slackChannel: {}
+
+  environment:
+    - name: key2
+      value: value2
+    - name:  testPasswordKey2
+      valueFromSecret: testPassword2
+
+  secrets:
+    testPassword: "password2"
+
+  resources: {}
+
+  activeDeadlineSeconds: {}
+
+  # Optional - Use a node label to ensure the cronjob runs on a specific physical node.
+  # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
+
+  nodeSelector: {}

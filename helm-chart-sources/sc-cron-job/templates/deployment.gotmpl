@@ -1,0 +1,79 @@
+{{- range .Values.jobs }}
+{{- $deploymentName := printf "%s-%s" $.Release.Name .name -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ $deploymentName }}-cronjob
+  labels:
+    app: {{ $deploymentName }}
+    namespace: {{ $.Release.Namespace }}
+spec:
+  schedule: "{{ .cron }}"
+  concurrencyPolicy: Forbid
+{{- if .activeDeadlineSeconds }}
+  failedJobsHistoryLimit: {{ .failedJobsHistoryLimit }}
+{{- else }}
+  failedJobsHistoryLimit: 1
+{{- end }}
+  jobTemplate:
+    spec:
+{{- if .activeDeadlineSeconds }}
+      activeDeadlineSeconds: {{ .activeDeadlineSeconds }}
+{{- end }}
+      template:
+        metadata:
+          labels:
+            app: {{ $deploymentName }}
+{{- if .alerts.slackChannel }}
+            kube-slack/slack-channel: {{ .alerts.slackChannel | quote }}
+{{- else }}
+            kube-slack/ignore-pod: "true"
+{{- end }}
+        spec:
+          containers:
+          - name: {{ $deploymentName }}
+            image: "{{ .image.repository }}:{{ .image.tag }}"
+            imagePullPolicy: {{ .image.pullPolicy }}
+{{- with .image.command }}
+            command:
+{{ toYaml . | indent 12 }}
+{{- end }}
+{{- with .image.args }}
+            args:
+{{ toYaml . | indent 12 }}
+{{- end }}
+{{- if .environment }}
+            env:
+    {{- range .environment }}
+              - name: {{ .name }}
+        {{- if .valueFromSecret }}
+                valueFrom:
+                  secretKeyRef:
+                    key: {{ .valueFromSecret }}
+                    name: {{ $deploymentName }}-secret
+        {{- else }}
+                value: {{ .value | quote }}
+        {{- end }}
+    {{- end }}
+{{- end}}
+{{- with .healthcheck }}
+            ports:
+              - name: http
+                containerPort: 80
+                hostPort: 80
+            livenessProbe:
+              httpGet:
+                path: {{ .path | default "/healthz" }}
+                port: http
+              initialDelaySeconds: {{ .initialDelaySeconds | default 60 }}
+              periodSeconds: {{ .periodSeconds | default 60 }}
+{{- end }}
+            resources:
+{{ toYaml .resources | indent 14 }}
+          restartPolicy: Never
+{{- if .nodeSelector }}
+          nodeSelector:
+{{ toYaml .nodeSelector | indent 12 }}
+{{- end }}
+---
+{{- end }}

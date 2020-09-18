@@ -1,0 +1,12 @@
+dependencies:
+- name: nginx-ingress
+  alias: nginx-ingress
+  version: 1.33.0
+  repository: "https://kubernetes-charts.storage.googleapis.com"
+  condition: nginx-ingress.enabled
+
+- name: nginx-ingress
+  alias: public-nginx-ingress
+  version: 1.33.0
+  repository: "https://kubernetes-charts.storage.googleapis.com"
+  condition: public-nginx-ingress.enabled

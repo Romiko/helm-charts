@@ -1,0 +1,110 @@
+# Default values for sc-team.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nginx-ingress:
+  enabled: false
+  controller:
+    config:
+      proxy-next-upstream: error timeout http_502
+    service:
+      omitClusterIP: true
+      annotations:
+        # Ensure the load balancer is not exposed externally
+        kubernetes.io/ingress.class: "gce-internal"
+    publishService:
+      enabled: true
+    scope:
+      enabled: true
+    stats:
+      enabled: true
+    metrics:
+      enabled: true
+      service:
+        omitClusterIP: true
+    replicaCount: 2
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 50%
+        maxUnavailable: 0
+      type: RollingUpdate
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPUUtilizationPercentage: 80
+    minAvailable: 1
+    resources:
+      requests:
+        cpu: 150m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 300Mi
+  defaultBackend:
+    service:
+      omitClusterIP: true
+    resources:
+      limits:
+        cpu: 10m
+        memory: 20Mi
+      requests:
+        cpu: 10m
+        memory: 20Mi
+    replicaCount: 2
+  hosts: []
+  tls: []
+
+public-nginx-ingress:
+  enabled: false
+  controller:
+    service:
+      omitClusterIP: true
+    config:
+      proxy-next-upstream: error timeout http_502
+    publishService:
+      enabled: true
+    scope:
+      enabled: true
+    stats:
+      enabled: true
+    metrics:
+      enabled: true
+      service:
+        omitClusterIP: true
+    replicaCount: 2
+    updateStrategy:
+      rollingUpdate:
+        maxSurge: 50%
+        maxUnavailable: 0
+      type: RollingUpdate
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 10
+      targetCPUUtilizationPercentage: 80
+    minAvailable: 1
+    resources:
+      requests:
+        cpu: 150m
+        memory: 200Mi
+      limits:
+        cpu: 250m
+        memory: 300Mi
+  defaultBackend:
+    service:
+      omitClusterIP: true
+    resources:
+      limits:
+        cpu: 10m
+        memory: 20Mi
+      requests:
+        cpu: 10m
+        memory: 20Mi
+    replicaCount: 2
+  hosts: []
+  tls: []
+
+certmanager:
+  enabled: false
+  clusterIssuer: letsencrypt-prod

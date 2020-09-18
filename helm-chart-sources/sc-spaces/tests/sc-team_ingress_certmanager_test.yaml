@@ -1,0 +1,93 @@
+suite: sc team app
+templates:
+  - ingress.yaml
+tests:
+  - it: Should add default annotations for nginx ingress with certmanager
+    set:
+      nginx-ingress:
+        enabled: true
+        hosts:
+          - "my.website.com"
+        tls:
+          - hosts:
+            - "my.website.com"
+            secretName: my.website.com
+      certmanager:
+        enabled: true
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: metadata.annotations
+          value:
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+            nginx.ingress.kubernetes.io/use-regex: "true"
+            kubernetes.io/ingress.class: nginx
+
+  - it: Should add custom issuer annotations for nginx ingress when issuer specified
+    set:
+      nginx-ingress:
+        enabled: true
+        hosts:
+          - "my.website.com"
+        tls:
+          - hosts:
+            - "my.website.com"
+            secretName: my.website.com
+      certmanager:
+        enabled: true
+        issuer: my-issuer
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: metadata.annotations
+          value:
+            cert-manager.io/issuer: my-issuer
+            nginx.ingress.kubernetes.io/use-regex: "true"
+            kubernetes.io/ingress.class: nginx
+
+  - it: Should add custom clusterissuer annotations for nginx ingress when issuer specified
+    set:
+      nginx-ingress:
+        enabled: true
+        hosts:
+          - "my.website.com"
+        tls:
+          - hosts:
+            - "my.website.com"
+            secretName: my.website.com
+      certmanager:
+        enabled: true
+        clusterIssuer: my-issuer
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: metadata.annotations
+          value:
+            cert-manager.io/cluster-issuer: my-issuer
+            nginx.ingress.kubernetes.io/use-regex: "true"
+            kubernetes.io/ingress.class: nginx
+
+  - it: Should not use DNS challenge for nginx ingress when disabled
+    set:
+      nginx-ingress:
+        enabled: true
+        hosts:
+          - "my.website.com"
+        tls:
+          - hosts:
+            - "my.website.com"
+            secretName: my.website.com
+      certmanager:
+        enabled: true
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: metadata.annotations
+          value:
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+            kubernetes.io/ingress.class: nginx
+            nginx.ingress.kubernetes.io/use-regex: "true"

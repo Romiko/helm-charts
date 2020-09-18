@@ -1,0 +1,7 @@
+apiVersion: v1
+appVersion: "1.0"
+description: Prometheus Appinsights Exporter
+name: prometheus-appinsights-exporter
+version: 1.0.0
+icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
+home: https://github.com/Romiko/helm-charts.git
