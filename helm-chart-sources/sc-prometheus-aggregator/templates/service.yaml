@@ -14,4 +14,3 @@ spec:
   selector:
     app.kubernetes.io/name: {{ include "prometheus-aggregator-gateway.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    app: {{ include "prometheus-aggregator-gateway.name" . }}
