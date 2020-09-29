@@ -29,6 +29,8 @@ jobs:
 
   nodeSelector: {}
 
+  affinity: {}
+
 - name: job-name-2
   image:
     pullPolicy: IfNotPresent
@@ -51,6 +53,8 @@ jobs:
     testPassword: "password2"
 
   resources: {}
+
+  affinity: {}
 
   activeDeadlineSeconds: {}
 

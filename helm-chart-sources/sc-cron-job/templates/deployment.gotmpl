@@ -30,6 +30,10 @@ spec:
             kube-slack/ignore-pod: "true"
 {{- end }}
         spec:
+{{- if .affinity }}
+          affinity:
+{{ toYaml .affinity | indent 12 }}
+{{- end }}
           containers:
           - name: {{ $deploymentName }}
             image: "{{ .image.repository }}:{{ .image.tag }}"
