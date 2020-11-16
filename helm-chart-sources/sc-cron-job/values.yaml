@@ -1,7 +1,10 @@
 jobs:
 - name: job-name-1
   image:
+    repository: scacraae.azurecr.io/cypress-synthetic-tests
+    tag: 0.1.0-160
     pullPolicy: IfNotPresent
+    secret: mysecret
 
   nameOverride: ""
   fullnameOverride: ""

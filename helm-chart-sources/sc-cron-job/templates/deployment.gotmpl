@@ -34,6 +34,10 @@ spec:
           affinity:
 {{ toYaml .affinity | indent 12 }}
 {{- end }}
+{{- if .image.secret }}
+          imagePullSecrets:
+            - name: {{ .image.secret }}
+{{- end }}
           containers:
           - name: {{ $deploymentName }}
             image: "{{ .image.repository }}:{{ .image.tag }}"
