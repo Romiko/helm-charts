@@ -65,13 +65,5 @@ jobs:
   # Optional - Use a node label to ensure the cronjob runs on a specific physical node.
   # https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
 
-  nodeSelector:
-    kubernetes.io/role: agent
-    beta.kubernetes.io/os: linux
-    type: virtual-kubelet
-    kubernetes.io/hostname: virtual-node-aae
-  tolerations:
-  - key: virtual-kubelet.io/provider
-    operator: Exists
-  - key: azure.com/aci
-    effect: NoSchedule
+  nodeSelector: {}
+  tolerations: {}
