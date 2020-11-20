@@ -82,6 +82,7 @@ spec:
 {{- if .nodeSelector }}
           nodeSelector:
 {{ toYaml .nodeSelector | indent 12 }}
+{{- end }}
 {{- if .tolerations }}
           tolerations:
 {{ toYaml .tolerations | indent 12 }}
