@@ -10,6 +10,7 @@ jobs:
   fullnameOverride: ""
 
   cron: "*/1 * * * *"
+  concurrencyPolicy: Forbid
 
   alerts:
     slackChannel: {}
@@ -44,6 +45,7 @@ jobs:
   fullnameOverride: ""
 
   cron: "*/1 * * * *"
+  concurrencyPolicy: Forbid
 
   alerts:
     slackChannel: {}
