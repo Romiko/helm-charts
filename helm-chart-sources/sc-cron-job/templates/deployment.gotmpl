@@ -9,6 +9,16 @@ metadata:
     namespace: {{ $.Release.Namespace }}
 spec:
   schedule: "{{ .cron }}"
+{{- if .completions }}
+  completions: {{ .completions }}
+{{- else }}
+  completions: 1
+{{- end }}
+{{- if .parallelism }}
+  parallelism: {{ .parallelism }}
+{{- else }}
+  parallelism: 1
+{{- end }}
 {{- if .concurrencyPolicy }}
   concurrencyPolicy: {{ .concurrencyPolicy }}
 {{- else }}
