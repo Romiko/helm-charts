@@ -3,9 +3,9 @@ entries:
   prometheus-aggregator-gateway:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6484358+11:00"
+    created: "2020-12-01T20:22:46.2114971+11:00"
     description: Prometheus Aggregator Gateway
-    digest: f3c7cd000d30192c8439d5773fd91002daf57c3aa2f2fda3c05e3f2abd171944
+    digest: 0c8417a1f96ffca4eb658b7db85b7b8ec9f926c907baf3240833f562edec0d67
     home: https://github.com/Romiko/helm-charts.git
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: prometheus-aggregator-gateway
@@ -14,7 +14,7 @@ entries:
     version: 0.0.9
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6453927+11:00"
+    created: "2020-12-01T20:22:46.2084118+11:00"
     description: Prometheus Aggregator Gateway
     digest: 0d5b7263f77823a732e700aa0cc1c0e4e73a2f1f3f1c84a4546ebfa946a4e77a
     home: https://github.com/Romiko/helm-charts.git
@@ -25,7 +25,7 @@ entries:
     version: 0.0.7
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6423834+11:00"
+    created: "2020-12-01T20:22:46.2052253+11:00"
     description: Prometheus Aggregator Gateway
     digest: 2ee8b540287458df061a7fe946a19c87e0bcdc780444da7e3e0156e2ba11c893
     home: https://github.com/Romiko/helm-charts.git
@@ -36,7 +36,7 @@ entries:
     version: 0.0.6
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6392672+11:00"
+    created: "2020-12-01T20:22:46.2021633+11:00"
     description: Prometheus Aggregator Gateway
     digest: b22fba151fce4a3cae9ac514485f3138bc59b1f5d5557ca79e64f250de0be926
     home: https://github.com/Romiko/helm-charts.git
@@ -47,7 +47,7 @@ entries:
     version: 0.0.5
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6362735+11:00"
+    created: "2020-12-01T20:22:46.1991016+11:00"
     description: Prometheus Aggregator Gateway
     digest: 0cac15c37c8151fbb57790888732dd0d56d783d38d58b75376e86fb11ac5ed42
     home: https://github.com/Romiko/helm-charts.git
@@ -58,7 +58,7 @@ entries:
     version: 0.0.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6331636+11:00"
+    created: "2020-12-01T20:22:46.1960583+11:00"
     description: Prometheus Aggregator Gateway
     digest: 7963e202256d22ceb74704f967464ea8460b1f0c5cbbb0c47e92337a5aa644b3
     home: https://github.com/Romiko/helm-charts.git
@@ -69,7 +69,7 @@ entries:
     version: 0.0.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6299045+11:00"
+    created: "2020-12-01T20:22:46.1927586+11:00"
     description: Prometheus Aggregator Gateway
     digest: 1478ddac0ccc9f9b610dd171e958421bc22262c83049b6fbb08567fdb908b263
     home: https://github.com/Romiko/helm-charts.git
@@ -80,7 +80,7 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.6266765+11:00"
+    created: "2020-12-01T20:22:46.1893278+11:00"
     description: Prometheus Aggregator Gateway
     digest: 306b631837c3ecc5cff83d47047320109d94786c5e0abbeb0555652813be071d
     home: https://github.com/Romiko/helm-charts.git
@@ -92,9 +92,9 @@ entries:
   prometheus-appinsights-exporter:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-01T20:04:23.652154+11:00"
+    created: "2020-12-01T20:22:46.2145469+11:00"
     description: Prometheus Appinsights Exporter
-    digest: 8e3cf5c10014d0cdc6fba0dca150908b6c73a4091051eacdf822ba546547e2db
+    digest: 139ec57ae52b0ac0860c43de7b8125814621f2b593ec718169cb6e06280fadb0
     home: https://github.com/Romiko/helm-charts.git
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: prometheus-appinsights-exporter
@@ -104,7 +104,17 @@ entries:
   sc-cron-job:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6782207+11:00"
+    created: "2020-12-01T20:22:46.2429354+11:00"
+    description: A Helm chart for Kubernetes
+    digest: 182d996e6a0897268c214ccd0c73a5af918765267c769612576d06a2368106f0
+    name: sc-cron-job
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/Romiko/helm-charts/master/sc-cron-job-1.0.9.tgz
+    version: 1.0.9
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-12-01T20:22:46.2397811+11:00"
     description: A Helm chart for Kubernetes
     digest: 8bc457aa9c186f8cb8fa6d1ae64805e25b9a5c9bca79fe190672ddcf3029efa7
     name: sc-cron-job
@@ -114,7 +124,7 @@ entries:
     version: 1.0.8
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6741763+11:00"
+    created: "2020-12-01T20:22:46.2366443+11:00"
     description: A Helm chart for Kubernetes
     digest: bdde805a1114262a4fee2d53344a66ab3f4dabff83cec92b28a2c88edf9b3876
     name: sc-cron-job
@@ -124,7 +134,7 @@ entries:
     version: 1.0.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.670988+11:00"
+    created: "2020-12-01T20:22:46.2335286+11:00"
     description: A Helm chart for Kubernetes
     digest: dc23118802e1b993ac837173ed6a3ce3fc3a7394868f72402a9ef12bddfff77d
     name: sc-cron-job
@@ -134,7 +144,7 @@ entries:
     version: 1.0.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6678142+11:00"
+    created: "2020-12-01T20:22:46.2304335+11:00"
     description: A Helm chart for Kubernetes
     digest: adc46a969fd3d9579c303f5fc58acbc17ad6cc23f579b58ab59dc8f8cb597e46
     name: sc-cron-job
@@ -144,7 +154,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.664698+11:00"
+    created: "2020-12-01T20:22:46.2272932+11:00"
     description: A Helm chart for Kubernetes
     digest: 335c978183b1d9d659d8b28cb2721d801d58ad8f5b0999fcfa8d89da10efc455
     name: sc-cron-job
@@ -154,7 +164,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6615478+11:00"
+    created: "2020-12-01T20:22:46.2241064+11:00"
     description: A Helm chart for Kubernetes
     digest: f111941489b98b1001d48597ca840ddf5a050590db03fc3695b4c2fa2123db62
     name: sc-cron-job
@@ -164,7 +174,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6584174+11:00"
+    created: "2020-12-01T20:22:46.2208733+11:00"
     description: A Helm chart for Kubernetes
     digest: caec1632af91a24aa98b4b42c663906331551cdfb60b6c6c7220e983f0607b88
     name: sc-cron-job
@@ -174,7 +184,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2020-12-01T20:04:23.6552282+11:00"
+    created: "2020-12-01T20:22:46.217679+11:00"
     description: A Helm chart for Kubernetes
     digest: 9d1289c18eca3ff58869e201bfff7758a01695358a71dd11877cd8458c2eab97
     name: sc-cron-job
@@ -185,7 +195,7 @@ entries:
   sc-spaces:
   - apiVersion: v1
     appVersion: 0.30.0
-    created: "2020-12-01T20:04:23.6840317+11:00"
+    created: "2020-12-01T20:22:46.2494605+11:00"
     dependencies:
     - alias: nginx-ingress
       condition: nginx-ingress.enabled
@@ -198,11 +208,11 @@ entries:
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 1.33.0
     description: Creates nginx public/internal ingress controllers
-    digest: 5969132c82eb60b00ec7944443f40db0f1f9d2683a5d795554a3d4447cc2e2cb
+    digest: 1dda4ee270bf6117b2b1f8179d1d255ced38ae8b7b1109c797bfa410f1bf40cf
     home: https://github.com/Romiko/helm-charts.git
     icon: http://welcome.rangerrom.com/images/icons/icon-main-92.png
     name: sc-spaces
     urls:
     - https://raw.githubusercontent.com/Romiko/helm-charts/master/sc-spaces-0.5.0.tgz
     version: 0.5.0
-generated: "2020-12-01T20:04:23.6235233+11:00"
+generated: "2020-12-01T20:22:46.1861423+11:00"
