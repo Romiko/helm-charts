@@ -13,6 +13,7 @@ spec:
   concurrencyPolicy: {{ .concurrencyPolicy }}
 {{- else }}
   concurrencyPolicy: Forbid
+{{- end }}
 {{- if .activeDeadlineSeconds }}
   failedJobsHistoryLimit: {{ .failedJobsHistoryLimit }}
 {{- else }}
