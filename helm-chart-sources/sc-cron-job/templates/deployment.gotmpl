@@ -34,6 +34,9 @@ spec:
 {{- if .activeDeadlineSeconds }}
       activeDeadlineSeconds: {{ .activeDeadlineSeconds }}
 {{- end }}
+{{- if .startingDeadlineSeconds }}
+      startingDeadlineSeconds: {{ .startingDeadlineSeconds }}
+{{- end }}
       template:
         metadata:
           labels:
