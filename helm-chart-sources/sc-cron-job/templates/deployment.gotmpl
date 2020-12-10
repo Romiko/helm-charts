@@ -14,10 +14,13 @@ spec:
 {{- else }}
   concurrencyPolicy: Forbid
 {{- end }}
-{{- if .activeDeadlineSeconds }}
+{{- if .failedJobsHistoryLimit }}
   failedJobsHistoryLimit: {{ .failedJobsHistoryLimit }}
 {{- else }}
   failedJobsHistoryLimit: 1
+{{- end }}
+{{- if .startingDeadlineSeconds }}
+  startingDeadlineSeconds: {{ .startingDeadlineSeconds }}
 {{- end }}
   jobTemplate:
     spec:
@@ -33,9 +36,6 @@ spec:
 {{- end }}
 {{- if .activeDeadlineSeconds }}
       activeDeadlineSeconds: {{ .activeDeadlineSeconds }}
-{{- end }}
-{{- if .startingDeadlineSeconds }}
-      startingDeadlineSeconds: {{ .startingDeadlineSeconds }}
 {{- end }}
       template:
         metadata:
