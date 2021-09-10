@@ -12,3 +12,4 @@ version: 1.0.12
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: 1.16.0
+icon: https://pbs.twimg.com/profile_images/378800000103383291/8318ce93212ebab1e07b6ce6fc1fd73a.jpeg
