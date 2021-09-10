@@ -25,6 +25,12 @@ This chart will allow you to export metrics from Azure AppInsights into Promethe
 
 <p align=center><img src="./docs/media/prometheus-appinsights-exporter-k8.png" alt="ArgoCD K8 Deployment View for Prometheus Exporter" height="150"></p>
 
+
+# Debug
+helm lint
+helm template --debug .
+
+
 # Contribute
 Currently the query support is very limited. It will be great to support Counters, Gauages, Summaries, Histograms etc
 
